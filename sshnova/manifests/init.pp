@@ -2,22 +2,22 @@
 
 class sshnova {
 
-		package { ‘ssh’:
+		package { 'ssh':
 
-		ensure => ‘installed’,
+		ensure => 'installed',
 		
 		allowcdrom => true,
 
 	}
 
-		file { ‘/etc/ssh/sshd_config’:
-		content => template(‘sshnova/sshd_config’),
-		notify => Service[‘ssh’],
+		file { '/etc/ssh/sshd_config':
+		content => template('sshnova/sshd_config'),
+		notify => Service['ssh'],
 	}
-		service { ‘ssh’:
-		ensure => ‘running’,
+		service { 'ssh':
+		ensure => 'running',
 		enable => true,
-		provider => ‘systemd’,
+		provider => 'systemd',
 	}
 
 }
